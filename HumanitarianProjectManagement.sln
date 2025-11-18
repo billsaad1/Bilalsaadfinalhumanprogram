@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanitarianProjectManagement", "HumanitarianProjectManagement.csproj", "{1AF88A89-6330-4C98-B889-1F5BBA1BC6CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AF88A89-6330-4C98-B889-1F5BBA1BC6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF88A89-6330-4C98-B889-1F5BBA1BC6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF88A89-6330-4C98-B889-1F5BBA1BC6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF88A89-6330-4C98-B889-1F5BBA1BC6CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77B2C0E9-74E9-4E12-B4EF-563243BE8D7B}
+	EndGlobalSection
+EndGlobal
