@@ -21,10 +21,10 @@ namespace HumanitarianProjectManagement.DataAccessLayer
 
         public DbSet<Beneficiary> Beneficiaries { get; set; }
         public DbSet<BeneficiaryList> BeneficiaryLists { get; set; }
-        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
-        public DbSet<Purchase> Purchases { get; set; }
-        public DbSet<StockItem> StockItems { get; set; }
-        public DbSet<StockTransaction> StockTransactions { get; set; }
+        //public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        //public DbSet<Purchase> Purchases { get; set; }
+        //public DbSet<StockItem> StockItems { get; set; }
+        //public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<ProjectReport> ProjectReports { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<FollowUpVisit> FollowUpVisits { get; set; }
@@ -62,10 +62,10 @@ namespace HumanitarianProjectManagement.DataAccessLayer
             modelBuilder.Entity<ItemizedBudgetDetail>().ToTable("ItemizedBudgetDetail");
             modelBuilder.Entity<Beneficiary>().ToTable("Beneficiary");
             modelBuilder.Entity<BeneficiaryList>().ToTable("BeneficiaryList");
-            modelBuilder.Entity<PurchaseOrder>().ToTable("PurchaseOrder");
-            modelBuilder.Entity<Purchase>().ToTable("Purchase");
-            modelBuilder.Entity<StockItem>().ToTable("StockItem");
-            modelBuilder.Entity<StockTransaction>().ToTable("StockTransaction");
+            //modelBuilder.Entity<PurchaseOrder>().ToTable("PurchaseOrder");
+            //modelBuilder.Entity<Purchase>().ToTable("Purchase");
+            //modelBuilder.Entity<StockItem>().ToTable("StockItem");
+            //modelBuilder.Entity<StockTransaction>().ToTable("StockTransaction");
             modelBuilder.Entity<ProjectReport>().ToTable("ProjectReport");
             modelBuilder.Entity<Feedback>().ToTable("Feedback");
             modelBuilder.Entity<FollowUpVisit>().ToTable("FollowUpVisit");
@@ -153,16 +153,16 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleID);
-            modelBuilder.Entity<PurchaseOrder>()
-                .HasOne(po => po.CreatedByUser)
-                .WithMany(u => u.CreatedPurchaseOrders)
-                .HasForeignKey(po => po.CreatedByUserID)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-            modelBuilder.Entity<PurchaseOrder>()
-                .HasOne(po => po.ApprovedByUser)
-                .WithMany(u => u.ApprovedPurchaseOrders)
-                .HasForeignKey(po => po.ApprovedByUserID)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            //modelBuilder.Entity<PurchaseOrder>()
+            //    .HasOne(po => po.CreatedByUser)
+            //    .WithMany(u => u.CreatedPurchaseOrders)
+            //    .HasForeignKey(po => po.CreatedByUserID)
+            //    .OnDelete(DeleteBehavior.ClientSetNull);
+            //modelBuilder.Entity<PurchaseOrder>()
+            //    .HasOne(po => po.ApprovedByUser)
+            //    .WithMany(u => u.ApprovedPurchaseOrders)
+            //    .HasForeignKey(po => po.ApprovedByUserID)
+            //    .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<Role>().HasData(new Role { RoleID = 1, RoleName = "Administrator", Description = "Full system access" });
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword("123");
