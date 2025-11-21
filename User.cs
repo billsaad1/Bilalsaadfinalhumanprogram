@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -46,10 +46,10 @@ namespace HumanitarianProjectManagement.Models
         public virtual ICollection<UserRole> UserRoles { get; set; }
         public virtual ICollection<Project> ManagedProjects { get; set; } // Projects where this user is a manager
         public virtual ICollection<Budget> ApprovedBudgets { get; set; } // Budgets approved by this user
-        public virtual ICollection<PurchaseOrder> CreatedPurchaseOrders { get; set; }
-        public virtual ICollection<PurchaseOrder> ApprovedPurchaseOrders { get; set; }
+        //public virtual ICollection<PurchaseOrder> CreatedPurchaseOrders { get; set; }
+        //public virtual ICollection<PurchaseOrder> ApprovedPurchaseOrders { get; set; }
         public virtual ICollection<ProjectReport> SubmittedProjectReports { get; set; }
-        public virtual ICollection<StockTransaction> RecordedStockTransactions { get; set; }
+        //public virtual ICollection<StockTransaction> RecordedStockTransactions { get; set; }
         public virtual ICollection<Feedback> RecordedFeedback { get; set; }
         public virtual ICollection<FollowUpVisit> ConductedFollowUpVisits { get; set; }
 
@@ -59,10 +59,10 @@ namespace HumanitarianProjectManagement.Models
             UserRoles = new HashSet<UserRole>();
             ManagedProjects = new HashSet<Project>();
             ApprovedBudgets = new HashSet<Budget>();
-            CreatedPurchaseOrders = new HashSet<PurchaseOrder>();
-            ApprovedPurchaseOrders = new HashSet<PurchaseOrder>();
+            //CreatedPurchaseOrders = new HashSet<PurchaseOrder>();
+            //ApprovedPurchaseOrders = new HashSet<PurchaseOrder>();
             SubmittedProjectReports = new HashSet<ProjectReport>();
-            RecordedStockTransactions = new HashSet<StockTransaction>();
+            //RecordedStockTransactions = new HashSet<StockTransaction>();
             RecordedFeedback = new HashSet<Feedback>();
             ConductedFollowUpVisits = new HashSet<FollowUpVisit>();
             IsActive = true;

@@ -243,9 +243,9 @@ namespace HumanitarianProjectManagement.Forms
             {
                 new { Text = "📊 Projects (All)", Icon = "📊", FormType = typeof(ProjectListForm) },
                 new { Text = "📈 Monitoring & Evaluation", Icon = "📈", FormType = typeof(ProjectListForm) },
-                new { Text = "🛒 Purchasing", Icon = "🛒", FormType = typeof(PurchaseOrderListForm) },
+                //new { Text = "🛒 Purchasing", Icon = "🛒", FormType = typeof(PurchaseOrderListForm) },
                 new { Text = "👥 Beneficiaries", Icon = "👥", FormType = typeof(BeneficiaryListManagementForm) },
-                new { Text = "📦 Stock Management", Icon = "📦", FormType = typeof(StockItemListForm) }
+                //new { Text = "📦 Stock Management", Icon = "📦", FormType = typeof(StockItemListForm) }
             };
 
             foreach (var props in moduleButtonProperties)
