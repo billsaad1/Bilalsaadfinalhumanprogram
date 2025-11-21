@@ -398,10 +398,10 @@ namespace HumanitarianProjectManagement.DataAccessLayer
         {
             List<Project> projects = new List<Project>();
             string query = @"
-                SELECT ProjectID, ProjectName, ProjectCode, SectionID, StartDate, EndDate, 
-                       Status, TotalBudget, Donor, CreatedAt, UpdatedAt, ManagerUserID, 
-                       Location, OverallObjective 
-                FROM Projects 
+                SELECT ProjectID, ProjectName, ProjectCode, SectionID, StartDate, EndDate,
+                       Status, TotalBudget, Donor, CreatedAt, UpdatedAt, ManagerUserID,
+                       Location, OverallObjective
+                FROM Projects
                 ORDER BY ProjectName;";
 
             try
@@ -438,9 +438,9 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                                     BeneficiaryLists = new BindingList<BeneficiaryList>(),
                                     ProjectIndicators = new BindingList<ProjectIndicator>(),
                                     // Budgets = new BindingList<Budget>(), // If Budget model exists and is needed
-                                    PurchaseOrders = new BindingList<PurchaseOrder>(),
+                                    //PurchaseOrders = new BindingList<PurchaseOrder>(),
                                     ProjectReports = new BindingList<ProjectReport>(),
-                                    StockTransactions = new BindingList<StockTransaction>(),
+                                    //StockTransactions = new BindingList<StockTransaction>(),
                                     Feedbacks = new BindingList<Feedback>(),
                                     FollowUpVisits = new BindingList<FollowUpVisit>()
                                 };
@@ -535,11 +535,11 @@ namespace HumanitarianProjectManagement.DataAccessLayer
         {
             List<Project> projects = new List<Project>();
             string query = @"
-                SELECT ProjectID, ProjectName, ProjectCode, SectionID, StartDate, EndDate, 
-                       Status, TotalBudget, Donor, CreatedAt, UpdatedAt, ManagerUserID, 
-                       Location, OverallObjective 
-                FROM Projects 
-                WHERE SectionID = @SectionID 
+                SELECT ProjectID, ProjectName, ProjectCode, SectionID, StartDate, EndDate,
+                       Status, TotalBudget, Donor, CreatedAt, UpdatedAt, ManagerUserID,
+                       Location, OverallObjective
+                FROM Projects
+                WHERE SectionID = @SectionID
                 ORDER BY ProjectName;";
 
             try
@@ -576,9 +576,9 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                                     DetailedBudgetLines = new BindingList<DetailedBudgetLine>(),
                                     BeneficiaryLists = new BindingList<BeneficiaryList>(),
                                     ProjectIndicators = new BindingList<ProjectIndicator>(),
-                                    PurchaseOrders = new BindingList<PurchaseOrder>(),
+                                    //PurchaseOrders = new BindingList<PurchaseOrder>(),
                                     ProjectReports = new BindingList<ProjectReport>(),
-                                    StockTransactions = new BindingList<StockTransaction>(),
+                                    //StockTransactions = new BindingList<StockTransaction>(),
                                     Feedbacks = new BindingList<Feedback>(),
                                     FollowUpVisits = new BindingList<FollowUpVisit>()
                                 };
