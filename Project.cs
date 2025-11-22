@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-// Removed: using HumanitarianProjectManagement; 
+// Removed: using HumanitarianProjectManagement;
 
 namespace HumanitarianProjectManagement.Models
 {
@@ -66,12 +66,12 @@ namespace HumanitarianProjectManagement.Models
         public virtual ICollection<BeneficiaryList> BeneficiaryLists { get; set; }
         public virtual ICollection<ProjectIndicator> ProjectIndicators { get; set; }
         public virtual ICollection<Budget> Budgets { get; set; }
-        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+        //public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual ICollection<ProjectReport> ProjectReports { get; set; }
-        public virtual ICollection<StockTransaction> StockTransactions { get; set; }
+        //public virtual ICollection<StockTransaction> StockTransactions { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<FollowUpVisit> FollowUpVisits { get; set; }
-        // Removed: public BindingList<BudgetSubCategory> BudgetSubCategories { get; set; } 
+        // Removed: public BindingList<BudgetSubCategory> BudgetSubCategories { get; set; }
 
         public virtual IList<Outcome> Outcomes { get; set; }
         public virtual ICollection<DetailedBudgetLine> DetailedBudgetLines { get; set; }
@@ -82,12 +82,12 @@ namespace HumanitarianProjectManagement.Models
             BeneficiaryLists = new HashSet<BeneficiaryList>();
             ProjectIndicators = new HashSet<ProjectIndicator>();
             Budgets = new HashSet<Budget>();
-            PurchaseOrders = new HashSet<PurchaseOrder>();
+            //PurchaseOrders = new HashSet<PurchaseOrder>();
             ProjectReports = new HashSet<ProjectReport>();
-            StockTransactions = new HashSet<StockTransaction>();
+            //StockTransactions = new HashSet<StockTransaction>();
             Feedbacks = new HashSet<Feedback>();
             FollowUpVisits = new HashSet<FollowUpVisit>();
-            // Removed: BudgetSubCategories = new BindingList<BudgetSubCategory>(); 
+            // Removed: BudgetSubCategories = new BindingList<BudgetSubCategory>();
 
             Outcomes = new List<Outcome>();
             DetailedBudgetLines = new HashSet<DetailedBudgetLine>();

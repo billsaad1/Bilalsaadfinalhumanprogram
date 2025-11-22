@@ -243,9 +243,9 @@ namespace HumanitarianProjectManagement.Forms
             {
                 new { Text = "📊 Projects (All)", Icon = "📊", FormType = typeof(ProjectListForm) },
                 new { Text = "📈 Monitoring & Evaluation", Icon = "📈", FormType = typeof(ProjectListForm) },
-                new { Text = "🛒 Purchasing", Icon = "🛒", FormType = typeof(PurchaseOrderListForm) },
+                //new { Text = "🛒 Purchasing", Icon = "🛒", FormType = typeof(PurchaseOrderListForm) },
                 new { Text = "👥 Beneficiaries", Icon = "👥", FormType = typeof(BeneficiaryListManagementForm) },
-                new { Text = "📦 Stock Management", Icon = "📦", FormType = typeof(StockItemListForm) }
+                //new { Text = "📦 Stock Management", Icon = "📦", FormType = typeof(StockItemListForm) }
             };
 
             foreach (var props in moduleButtonProperties)
@@ -457,8 +457,8 @@ namespace HumanitarianProjectManagement.Forms
         // Menu Event Handlers
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Settings functionality will be implemented soon.", "Settings",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

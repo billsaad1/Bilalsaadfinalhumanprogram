@@ -1,4 +1,4 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -111,7 +111,7 @@ namespace HumanitarianProjectManagement.Forms
                 }
 
                 // Hide less relevant columns or those with complex objects if not handled by ToString()
-                string[] columnsToHide = { "SectionID", "ManagerUserID", "Section", "ManagerUser", "BeneficiaryLists", "ProjectIndicators", "Budgets", "PurchaseOrders", "ProjectReports", "StockTransactions", "Feedbacks", "FollowUpVisits", "OverallObjective", "Location", "Donor", "UpdatedAt", "CreatedAt" };
+                string[] columnsToHide = { "SectionID", "ManagerUserID", "Section", "ManagerUser", "BeneficiaryLists", "ProjectIndicators", "Budgets", "ProjectReports", "Feedbacks", "FollowUpVisits", "OverallObjective", "Location", "Donor", "UpdatedAt", "CreatedAt" };
                 foreach (string colName in columnsToHide)
                 {
                     if (dgvProjects.Columns[colName] != null)
