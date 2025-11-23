@@ -1,4 +1,4 @@
-﻿using HumanitarianProjectManagement.Models;
+using HumanitarianProjectManagement.Models;
 using Microsoft.EntityFrameworkCore;
 using BCrypt.Net;
 
@@ -16,22 +16,12 @@ namespace HumanitarianProjectManagement.DataAccessLayer
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<DetailedBudgetLine> DetailedBudgetLines { get; set; }
-        // Removed: public DbSet<BudgetSubCategory> BudgetSubCategories { get; set; } 
         public DbSet<ItemizedBudgetDetail> ItemizedBudgetDetails { get; set; }
-
         public DbSet<Beneficiary> Beneficiaries { get; set; }
         public DbSet<BeneficiaryList> BeneficiaryLists { get; set; }
-        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
-        public DbSet<Purchase> Purchases { get; set; }
-        public DbSet<StockItem> StockItems { get; set; }
-        public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<ProjectReport> ProjectReports { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<FollowUpVisit> FollowUpVisits { get; set; }
-        public object Supplier { get; internal set; }
-        public object GoodsReceipts { get; internal set; }
-        public object Payments { get; internal set; }
-        public object PurchaseRequisitions { get; internal set; }
 
         public HpmDbContext(DbContextOptions<HpmDbContext> options) : base(options) { }
         public HpmDbContext() : base() { }
@@ -58,14 +48,9 @@ namespace HumanitarianProjectManagement.DataAccessLayer
             modelBuilder.Entity<UserRole>().ToTable("UserRoles");
             modelBuilder.Entity<Section>().ToTable("Sections");
             modelBuilder.Entity<DetailedBudgetLine>().ToTable("DetailedBudgetLine");
-            // Removed: modelBuilder.Entity<BudgetSubCategory>().ToTable("BudgetSubCategory");
             modelBuilder.Entity<ItemizedBudgetDetail>().ToTable("ItemizedBudgetDetail");
             modelBuilder.Entity<Beneficiary>().ToTable("Beneficiary");
             modelBuilder.Entity<BeneficiaryList>().ToTable("BeneficiaryList");
-            modelBuilder.Entity<PurchaseOrder>().ToTable("PurchaseOrder");
-            modelBuilder.Entity<Purchase>().ToTable("Purchase");
-            modelBuilder.Entity<StockItem>().ToTable("StockItem");
-            modelBuilder.Entity<StockTransaction>().ToTable("StockTransaction");
             modelBuilder.Entity<ProjectReport>().ToTable("ProjectReport");
             modelBuilder.Entity<Feedback>().ToTable("Feedback");
             modelBuilder.Entity<FollowUpVisit>().ToTable("FollowUpVisit");
@@ -80,7 +65,6 @@ namespace HumanitarianProjectManagement.DataAccessLayer
             modelBuilder.Entity<UserRole>().HasKey(ur => new { ur.UserID, ur.RoleID });
             modelBuilder.Entity<Section>().HasKey(s => s.SectionID);
             modelBuilder.Entity<DetailedBudgetLine>().HasKey(dbl => dbl.DetailedBudgetLineID);
-            // Removed: modelBuilder.Entity<BudgetSubCategory>().HasKey(bsc => bsc.BudgetSubCategoryID);
             modelBuilder.Entity<ItemizedBudgetDetail>().HasKey(ibd => ibd.ItemizedBudgetDetailID);
 
             modelBuilder.Entity<DetailedBudgetLine>(entity =>
@@ -90,16 +74,11 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                       .HasForeignKey(d => d.ProjectId)
                       .OnDelete(DeleteBehavior.Cascade);
 
-                // ADDED: Self-referencing relationship for DetailedBudgetLine
                 entity.HasOne(d => d.ParentDetailedBudgetLine)
                       .WithMany(p => p.ChildDetailedBudgetLines)
                       .HasForeignKey(d => d.ParentDetailedBudgetLineID)
                       .IsRequired(false)
                       .OnDelete(DeleteBehavior.NoAction);
-
-                // REMOVED old relationships to BudgetSubCategory
-                // entity.HasOne(d => d.BudgetSubCategory)...
-                // entity.HasMany(l => l.ChildSubCategories)...
 
                 entity.Property(e => e.UnitCost).HasColumnType("decimal(18, 2)");
                 entity.Property(e => e.Quantity).HasColumnType("decimal(18, 3)");
@@ -110,8 +89,6 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                 entity.Property(e => e.Unit).HasMaxLength(50);
                 entity.Property(e => e.ItemName).HasMaxLength(255);
             });
-
-            // REMOVED: modelBuilder.Entity<BudgetSubCategory>(entity => { ... });
 
             modelBuilder.Entity<ItemizedBudgetDetail>(entity =>
             {
@@ -153,16 +130,6 @@ namespace HumanitarianProjectManagement.DataAccessLayer
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleID);
-            modelBuilder.Entity<PurchaseOrder>()
-                .HasOne(po => po.CreatedByUser)
-                .WithMany(u => u.CreatedPurchaseOrders)
-                .HasForeignKey(po => po.CreatedByUserID)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-            modelBuilder.Entity<PurchaseOrder>()
-                .HasOne(po => po.ApprovedByUser)
-                .WithMany(u => u.ApprovedPurchaseOrders)
-                .HasForeignKey(po => po.ApprovedByUserID)
-                .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<Role>().HasData(new Role { RoleID = 1, RoleName = "Administrator", Description = "Full system access" });
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword("123");

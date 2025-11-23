@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -61,13 +61,13 @@ namespace HumanitarianProjectManagement.Models
 
         public virtual ICollection<Salary> Salaries { get; set; }
         public virtual ICollection<Activity> Activities { get; set; }
-        public virtual ICollection<Purchase> Purchases { get; set; }
+        //public virtual ICollection<Purchase> Purchases { get; set; }
 
         public Budget()
         {
             Salaries = new HashSet<Salary>();
             Activities = new HashSet<Activity>();
-            Purchases = new HashSet<Purchase>();
+            //Purchases = new HashSet<Purchase>();
             CreatedAt = DateTime.UtcNow;
             BudgetName = "Main Budget";
             Currency = "USD";
