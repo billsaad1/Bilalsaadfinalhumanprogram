@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 
-namespace HumanitarianProjectManagement.Services
+namespace HumanitarianProjectManagement.DataAccessLayer
 {
     public class SettingsService
     {
