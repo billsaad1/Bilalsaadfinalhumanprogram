@@ -1,10 +1,11 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -28,6 +29,32 @@ namespace HumanitarianProjectManagement.Forms
             this.CancelButton = btnClose;
 
             SetAccessibilityProperties();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectMonitoringForm));
+            this.Text = resources.GetString("FormTitle");
+            this.labelProjectName.Text = resources.GetString("labelProjectName");
+            this.btnAddIndicator.Text = resources.GetString("btnAddIndicator");
+            this.btnEditIndicator.Text = resources.GetString("btnEditIndicator");
+            this.btnDeleteIndicator.Text = resources.GetString("btnDeleteIndicator");
+            this.btnRefresh.Text = resources.GetString("btnRefresh");
+            this.btnUpdateActualValue.Text = resources.GetString("btnUpdateActualValue");
+            this.labelCurrentValue.Text = resources.GetString("labelCurrentValue");
+            this.labelDateOfUpdate.Text = resources.GetString("labelDateOfUpdate");
         }
 
         private void SetAccessibilityProperties()

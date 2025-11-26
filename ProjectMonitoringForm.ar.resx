@@ -5,23 +5,6 @@
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
@@ -58,19 +41,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="FormTitle" xml:space="preserve">
+    <value>متابعة وتقييم المشروع</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="labelProjectName" xml:space="preserve">
+    <value>المشروع:</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="btnAddIndicator" xml:space="preserve">
+    <value>إضافة مؤشر</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="btnEditIndicator" xml:space="preserve">
+    <value>تعديل المؤشر</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="btnDeleteIndicator" xml:space="preserve">
+    <value>حذف المؤشر</value>
+  </data>
+  <data name="btnRefresh" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="btnUpdateActualValue" xml:space="preserve">
+    <value>تحديث القيمة الحالية</value>
+  </data>
+  <data name="labelCurrentValue" xml:space="preserve">
+    <value>القيمة الحالية:</value>
+  </data>
+  <data name="labelDateOfUpdate" xml:space="preserve">
+    <value>تاريخ التحديث:</value>
   </data>
 </root>

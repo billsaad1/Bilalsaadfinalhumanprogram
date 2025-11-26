@@ -1,8 +1,9 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -49,6 +50,40 @@ namespace HumanitarianProjectManagement.Forms
                 numHouseholdSize.Enabled = false;
             }
             SetAccessibilityProperties();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BeneficiaryCreateEditForm));
+            if (_isEditMode)
+            {
+                this.Text = resources.GetString("EditBeneficiaryTitle");
+            }
+            else
+            {
+                this.Text = resources.GetString("AddBeneficiaryTitle");
+            }
+            this.labelFirstName.Text = resources.GetString("labelFirstName");
+            this.labelLastName.Text = resources.GetString("labelLastName");
+            this.labelNationalId.Text = resources.GetString("labelNationalId");
+            this.labelDateOfBirth.Text = resources.GetString("labelDateOfBirth");
+            this.labelGender.Text = resources.GetString("labelGender");
+            this.labelAddress.Text = resources.GetString("labelAddress");
+            this.labelPhoneNumber.Text = resources.GetString("labelPhoneNumber");
+            this.btnSave.Text = resources.GetString("btnSave");
+            this.btnCancel.Text = resources.GetString("btnCancel");
         }
 
         private void SetAccessibilityProperties()
@@ -220,7 +255,7 @@ namespace HumanitarianProjectManagement.Forms
             if (!chkSpecifyHouseholdSize.Checked)
             {
                 // Optional: Clear value when unchecked
-                // numHouseholdSize.Value = 0; 
+                // numHouseholdSize.Value = 0;
             }
         }
     }

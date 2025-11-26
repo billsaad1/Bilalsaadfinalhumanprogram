@@ -58,19 +58,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="ProjectListTitle" xml:space="preserve">
+    <value>Project List</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="AddProject" xml:space="preserve">
+    <value>Add Project</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="EditProject" xml:space="preserve">
+    <value>Edit Project</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="DeleteProject" xml:space="preserve">
+    <value>Delete Project</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="GoToMonitoring" xml:space="preserve">
+    <value>Go to Monitoring</value>
   </data>
 </root>

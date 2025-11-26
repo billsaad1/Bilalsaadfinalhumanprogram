@@ -1,8 +1,9 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -44,6 +45,35 @@ namespace HumanitarianProjectManagement.Forms
                 this.Text = "Add New Beneficiary List";
             }
             SetAccessibilityProperties();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BeneficiaryListCreateEditForm));
+            if (_isEditMode)
+            {
+                this.Text = resources.GetString("EditListTitle");
+            }
+            else
+            {
+                this.Text = resources.GetString("AddListTitle");
+            }
+            this.labelListName.Text = resources.GetString("labelListName");
+            this.labelDescription.Text = resources.GetString("labelDescription");
+            this.btnSave.Text = resources.GetString("btnSave");
+            this.btnCancel.Text = resources.GetString("btnCancel");
         }
 
         private void SetAccessibilityProperties()

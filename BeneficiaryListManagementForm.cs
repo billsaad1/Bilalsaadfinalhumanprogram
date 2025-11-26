@@ -1,4 +1,4 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -40,7 +41,31 @@ namespace HumanitarianProjectManagement.Forms
             btnViewBeneficiaries.AccessibleDescription = "Opens a new form to manage individual beneficiaries within the selected list.";
             btnRefreshLists.AccessibleName = "Refresh Beneficiary Lists";
             btnRefreshLists.AccessibleDescription = "Reloads the beneficiary lists for the currently selected project.";
+            ApplyLocalization();
         }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BeneficiaryListManagementForm));
+            this.Text = resources.GetString("FormTitle");
+            this.btnAddList.Text = resources.GetString("btnAddList");
+            this.btnEditList.Text = resources.GetString("btnEditList");
+            this.btnDeleteList.Text = resources.GetString("btnDeleteList");
+            this.btnOpenList.Text = resources.GetString("btnOpenList");
+            this.btnRefresh.Text = resources.GetString("btnRefresh");
+        }
+
 
         private async void BeneficiaryListManagementForm_Load(object sender, EventArgs e)
         {

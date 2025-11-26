@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
@@ -14,16 +16,30 @@ namespace HumanitarianProjectManagement.Forms
         public LoginForm()
         {
             InitializeComponent();
-            ThemeManager.ApplyThemeToForm(this); // Added
             _userService = new UserService();
+            ApplyLocalization();
+        }
 
-            // Accessibility Enhancements
-            txtUsername.AccessibleName = "Username";
-            txtUsername.AccessibleDescription = "Enter your account username.";
-            txtPassword.AccessibleName = "Password";
-            txtPassword.AccessibleDescription = "Enter your account password.";
-            btnLogin.AccessibleName = "Login button";
-            btnCancel.AccessibleName = "Cancel button";
+        private void ApplyLocalization()
+        {
+            // Set Right-to-Left layout if the language is Arabic
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            this.lblUsername.Text = resources.GetString("Username");
+            this.lblPassword.Text = resources.GetString("Password");
+            this.btnLogin.Text = resources.GetString("Login");
+            this.btnCancel.Text = resources.GetString("Cancel");
+            this.Text = resources.GetString("LoginTitle");
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)

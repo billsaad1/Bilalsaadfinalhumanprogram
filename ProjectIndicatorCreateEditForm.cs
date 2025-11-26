@@ -1,9 +1,10 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -59,6 +60,40 @@ namespace HumanitarianProjectManagement.Forms
             chkSpecifyStartDate.CheckedChanged += chkSpecifyStartDate_CheckedChanged;
             chkSpecifyEndDate.CheckedChanged += chkSpecifyEndDate_CheckedChanged;
             SetAccessibilityProperties();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectIndicatorCreateEditForm));
+            if (_isEditMode)
+            {
+                this.Text = resources.GetString("EditIndicatorTitle");
+            }
+            else
+            {
+                this.Text = resources.GetString("AddIndicatorTitle");
+            }
+
+            this.labelIndicatorName.Text = resources.GetString("labelIndicatorName");
+            this.labelDescription.Text = resources.GetString("labelDescription");
+            this.labelUnitOfMeasure.Text = resources.GetString("labelUnitOfMeasure");
+            this.labelBaseline.Text = resources.GetString("labelBaseline");
+            this.labelTarget.Text = resources.GetString("labelTarget");
+            this.checkBoxIsKeyIndicator.Text = resources.GetString("checkBoxIsKeyIndicator");
+            this.btnSave.Text = resources.GetString("btnSave");
+            this.btnCancel.Text = resources.GetString("btnCancel");
         }
 
         private void SetAccessibilityProperties()

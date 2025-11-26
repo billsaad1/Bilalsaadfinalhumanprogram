@@ -1,10 +1,11 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -27,7 +28,31 @@ namespace HumanitarianProjectManagement.Forms
             lblListNameDisplay.Text = $"List Name: {_currentBeneficiaryListName}";
 
             SetAccessibilityProperties();
+            ApplyLocalization();
         }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BeneficiaryMainForm));
+            this.Text = resources.GetString("FormTitle");
+            this.btnAddBeneficiary.Text = resources.GetString("btnAddBeneficiary");
+            this.btnEditBeneficiary.Text = resources.GetString("btnEditBeneficiary");
+            this.btnDeleteBeneficiary.Text = resources.GetString("btnDeleteBeneficiary");
+            this.btnManageLists.Text = resources.GetString("btnManageLists");
+            this.btnRefresh.Text = resources.GetString("btnRefresh");
+        }
+
 
         private void SetAccessibilityProperties()
         {
