@@ -41,6 +41,7 @@ namespace HumanitarianProjectManagement.Forms
             btnViewBeneficiaries.AccessibleDescription = "Opens a new form to manage individual beneficiaries within the selected list.";
             btnRefreshLists.AccessibleName = "Refresh Beneficiary Lists";
             btnRefreshLists.AccessibleDescription = "Reloads the beneficiary lists for the currently selected project.";
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

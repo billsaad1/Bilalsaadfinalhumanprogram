@@ -79,6 +79,7 @@ namespace HumanitarianProjectManagement.Forms
             }
 
             this.Load += new System.EventHandler(this.ProjectCreateEditForm_Load);
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

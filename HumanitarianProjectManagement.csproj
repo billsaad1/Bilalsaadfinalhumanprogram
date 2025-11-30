@@ -387,6 +387,7 @@
     </Compile>
     <Compile Include="TestRunner.cs" />
     <Compile Include="ThemeManager.cs" />
+    <Compile Include="ApplicationStyleManager.cs" />
     <Compile Include="ProjectIndicator.cs" />
     <Compile Include="ProjectReport.cs" />
     <Compile Include="Role.cs" />

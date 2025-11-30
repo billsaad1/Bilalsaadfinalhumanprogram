@@ -29,6 +29,8 @@ namespace HumanitarianProjectManagement.Forms
 
             this.Load += new System.EventHandler(this.ProjectListForm_Load);
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
             ApplyLocalization();
 
             // Optional: Adjust form title if sectionId is provided
@@ -136,6 +138,7 @@ namespace HumanitarianProjectManagement.Forms
                     dgvProjects.Columns["TotalBudget"].HeaderText = resources.GetString("TotalBudget");
                     dgvProjects.Columns["TotalBudget"].DefaultCellStyle.Format = "N2"; // Format as number with 2 decimal places
                 }
+
 
                 // Hide less relevant columns or those with complex objects if not handled by ToString()
                 string[] columnsToHide = { "SectionID", "ManagerUserID", "Section", "ManagerUser", "BeneficiaryLists", "ProjectIndicators", "Budgets", "ProjectReports", "Feedbacks", "FollowUpVisits", "OverallObjective", "Location", "Donor", "UpdatedAt", "CreatedAt" };

@@ -29,6 +29,7 @@ namespace HumanitarianProjectManagement.Forms
             this.CancelButton = btnClose;
 
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

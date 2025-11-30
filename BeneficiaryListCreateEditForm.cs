@@ -45,6 +45,7 @@ namespace HumanitarianProjectManagement.Forms
                 this.Text = "Add New Beneficiary List";
             }
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

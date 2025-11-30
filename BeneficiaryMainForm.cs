@@ -28,6 +28,7 @@ namespace HumanitarianProjectManagement.Forms
             lblListNameDisplay.Text = $"List Name: {_currentBeneficiaryListName}";
 
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

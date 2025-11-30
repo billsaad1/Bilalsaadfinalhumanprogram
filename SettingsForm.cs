@@ -1,5 +1,6 @@
 using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
+using HumanitarianProjectManagement.UI;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -47,7 +48,7 @@ namespace HumanitarianProjectManagement.Forms
             _settingsService.SaveSettings(_settings);
 
             // Apply the new culture immediately
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_settings.Language);
+            ApplicationStyleManager.SetLanguage(_settings.Language);
 
             MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
@@ -73,7 +74,7 @@ namespace HumanitarianProjectManagement.Forms
         private void CmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             string culture = cmbLanguage.SelectedIndex == 1 ? "ar" : "en";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+            ApplicationStyleManager.SetLanguage(culture);
             ApplyLocalization();
         }
 

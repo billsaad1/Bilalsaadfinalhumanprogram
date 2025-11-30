@@ -60,6 +60,7 @@ namespace HumanitarianProjectManagement.Forms
             chkSpecifyStartDate.CheckedChanged += chkSpecifyStartDate_CheckedChanged;
             chkSpecifyEndDate.CheckedChanged += chkSpecifyEndDate_CheckedChanged;
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 

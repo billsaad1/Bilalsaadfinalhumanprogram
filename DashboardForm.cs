@@ -30,6 +30,8 @@ namespace HumanitarianProjectManagement.Forms
 
             // Wire up event handlers
             this.Load += DashboardForm_Load;
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
 
             // Set up hover effects for buttons
             SetupButtonHoverEffects();

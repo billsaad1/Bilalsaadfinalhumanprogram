@@ -50,6 +50,7 @@ namespace HumanitarianProjectManagement.Forms
                 numHouseholdSize.Enabled = false;
             }
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
             ApplyLocalization();
         }
 
