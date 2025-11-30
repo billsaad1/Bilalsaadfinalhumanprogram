@@ -108,17 +108,17 @@ namespace HumanitarianProjectManagement.Forms
             }
 
             // Localize Labels
-            this.labelProjectName.Text = resources.GetString("labelProjectName");
-            this.labelProjectCode.Text = resources.GetString("labelProjectCode");
-            this.labelOverallObjective.Text = resources.GetString("labelOverallObjective");
-            this.labelLocation.Text = resources.GetString("labelLocation");
-            this.labelStartDate.Text = resources.GetString("labelStartDate");
-            this.labelEndDate.Text = resources.GetString("labelEndDate");
-            this.labelStatus.Text = resources.GetString("labelStatus");
-            this.labelTotalBudget.Text = resources.GetString("labelTotalBudget");
-            this.labelDonor.Text = resources.GetString("labelDonor");
-            this.labelSection.Text = resources.GetString("labelSection");
-            this.labelManager.Text = resources.GetString("labelManager");
+            this.lblProjectName.Text = resources.GetString("labelProjectName");
+            this.lblProjectCode.Text = resources.GetString("labelProjectCode");
+            this.lblOverallObjective.Text = resources.GetString("labelOverallObjective");
+            this.lblLocation.Text = resources.GetString("labelLocation");
+            this.lblStartDate.Text = resources.GetString("labelStartDate");
+            this.lblEndDate.Text = resources.GetString("labelEndDate");
+            this.lblStatus.Text = resources.GetString("labelStatus");
+            this.lblTotalBudget.Text = resources.GetString("labelTotalBudget");
+            this.lblDonor.Text = resources.GetString("labelDonor");
+            this.lblSection.Text = resources.GetString("labelSection");
+            this.lblManager.Text = resources.GetString("labelManager");
 
             // Localize Buttons
             this.btnSave.Text = resources.GetString("btnSave");

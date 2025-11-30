@@ -86,12 +86,12 @@ namespace HumanitarianProjectManagement.Forms
                 this.Text = resources.GetString("AddIndicatorTitle");
             }
 
-            this.labelIndicatorName.Text = resources.GetString("labelIndicatorName");
-            this.labelDescription.Text = resources.GetString("labelDescription");
-            this.labelUnitOfMeasure.Text = resources.GetString("labelUnitOfMeasure");
-            this.labelBaseline.Text = resources.GetString("labelBaseline");
-            this.labelTarget.Text = resources.GetString("labelTarget");
-            this.checkBoxIsKeyIndicator.Text = resources.GetString("checkBoxIsKeyIndicator");
+            this.lblIndicatorName.Text = resources.GetString("labelIndicatorName");
+            this.lblDescription.Text = resources.GetString("labelDescription");
+            this.lblUnitOfMeasure.Text = resources.GetString("labelUnitOfMeasure");
+            this.lblBaselineValue.Text = resources.GetString("labelBaseline");
+            this.lblTargetValue.Text = resources.GetString("labelTarget");
+            this.chkIsKeyIndicator.Text = resources.GetString("checkBoxIsKeyIndicator");
             this.btnSave.Text = resources.GetString("btnSave");
             this.btnCancel.Text = resources.GetString("btnCancel");
         }

@@ -62,8 +62,8 @@ namespace HumanitarianProjectManagement.Forms
             this.btnAddList.Text = resources.GetString("btnAddList");
             this.btnEditList.Text = resources.GetString("btnEditList");
             this.btnDeleteList.Text = resources.GetString("btnDeleteList");
-            this.btnOpenList.Text = resources.GetString("btnOpenList");
-            this.btnRefresh.Text = resources.GetString("btnRefresh");
+            this.btnViewBeneficiaries.Text = resources.GetString("btnOpenList");
+            this.btnRefreshLists.Text = resources.GetString("btnRefresh");
         }
 
 

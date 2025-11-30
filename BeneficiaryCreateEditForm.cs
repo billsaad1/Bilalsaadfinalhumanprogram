@@ -75,13 +75,13 @@ namespace HumanitarianProjectManagement.Forms
             {
                 this.Text = resources.GetString("AddBeneficiaryTitle");
             }
-            this.labelFirstName.Text = resources.GetString("labelFirstName");
-            this.labelLastName.Text = resources.GetString("labelLastName");
-            this.labelNationalId.Text = resources.GetString("labelNationalId");
-            this.labelDateOfBirth.Text = resources.GetString("labelDateOfBirth");
-            this.labelGender.Text = resources.GetString("labelGender");
-            this.labelAddress.Text = resources.GetString("labelAddress");
-            this.labelPhoneNumber.Text = resources.GetString("labelPhoneNumber");
+            this.lblFirstName.Text = resources.GetString("labelFirstName");
+            this.lblLastName.Text = resources.GetString("labelLastName");
+            this.lblNationalID.Text = resources.GetString("labelNationalId");
+            this.lblDateOfBirth.Text = resources.GetString("labelDateOfBirth");
+            this.lblGender.Text = resources.GetString("labelGender");
+            this.lblAddress.Text = resources.GetString("labelAddress");
+            this.lblContactNumber.Text = resources.GetString("labelPhoneNumber");
             this.btnSave.Text = resources.GetString("btnSave");
             this.btnCancel.Text = resources.GetString("btnCancel");
         }

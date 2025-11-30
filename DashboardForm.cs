@@ -64,11 +64,11 @@ namespace HumanitarianProjectManagement.Forms
             this.helpToolStripMenuItem.Text = resources.GetString("Help");
             this.aboutToolStripMenuItem.Text = resources.GetString("About");
             this.lblWelcomeTitle.Text = string.Format(resources.GetString("WelcomeTitle"), Environment.UserName);
-            this.lblQuickStats.Text = resources.GetString("QuickStats");
-            this.lblProjectsCard.Text = resources.GetString("ProjectsCard");
-            this.lblBeneficiariesCard.Text = resources.GetString("BeneficiariesCard");
-            this.lblBudgetCard.Text = resources.GetString("BudgetCard");
-            this.lblQuickActions.Text = resources.GetString("QuickActions");
+            this.lblQuickStatsTitle.Text = resources.GetString("QuickStats");
+            this.lblProjectsLabel.Text = resources.GetString("ProjectsCard");
+            this.lblBeneficiariesLabel.Text = resources.GetString("BeneficiariesCard");
+            this.lblBudgetLabel.Text = resources.GetString("BudgetCard");
+            this.lblQuickActionsTitle.Text = resources.GetString("QuickActions");
             this.btnNewProject.Text = resources.GetString("NewProject");
             this.btnViewReports.Text = resources.GetString("ViewReports");
             this.btnManageBeneficiaries.Text = resources.GetString("ManageBeneficiaries");

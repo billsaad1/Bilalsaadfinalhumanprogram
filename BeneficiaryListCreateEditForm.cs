@@ -70,8 +70,8 @@ namespace HumanitarianProjectManagement.Forms
             {
                 this.Text = resources.GetString("AddListTitle");
             }
-            this.labelListName.Text = resources.GetString("labelListName");
-            this.labelDescription.Text = resources.GetString("labelDescription");
+            this.lblListName.Text = resources.GetString("labelListName");
+            this.lblDescription.Text = resources.GetString("labelDescription");
             this.btnSave.Text = resources.GetString("btnSave");
             this.btnCancel.Text = resources.GetString("btnCancel");
         }

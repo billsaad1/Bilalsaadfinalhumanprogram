@@ -47,14 +47,11 @@ namespace HumanitarianProjectManagement.Forms
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectMonitoringForm));
             this.Text = resources.GetString("FormTitle");
-            this.labelProjectName.Text = resources.GetString("labelProjectName");
+            this.lblProjectNameDisplay.Text = resources.GetString("labelProjectName");
             this.btnAddIndicator.Text = resources.GetString("btnAddIndicator");
             this.btnEditIndicator.Text = resources.GetString("btnEditIndicator");
             this.btnDeleteIndicator.Text = resources.GetString("btnDeleteIndicator");
-            this.btnRefresh.Text = resources.GetString("btnRefresh");
-            this.btnUpdateActualValue.Text = resources.GetString("btnUpdateActualValue");
-            this.labelCurrentValue.Text = resources.GetString("labelCurrentValue");
-            this.labelDateOfUpdate.Text = resources.GetString("labelDateOfUpdate");
+            this.btnRefreshIndicators.Text = resources.GetString("btnRefresh");
         }
 
         private void SetAccessibilityProperties()
