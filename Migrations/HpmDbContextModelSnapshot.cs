@@ -323,7 +323,7 @@ namespace HumanitarianProjectManagement.Migrations
                     b.Property<int>("ProjectIndicatorID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy..IdentityColumn);
 
                     b.Property<string>("ActualValue")
                         .HasColumnType("nvarchar(max)");
@@ -557,7 +557,7 @@ namespace HumanitarianProjectManagement.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("HumanitarianProjectManagement.Models.ItemizedBudgetDetail", b =>
+dgetDetail", b =>
                 {
                     b.HasOne("HumanitarianProjectManagement.Models.DetailedBudgetLine", "ParentBudgetLine")
                         .WithMany("ItemizedDetails")
