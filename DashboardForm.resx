@@ -58,19 +58,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>Welcome, {0}!</value>
+  </data>
+  <data name="QuickStats" xml:space="preserve">
+    <value>Quick Stats</value>
+  </data>
+  <data name="ProjectsCard" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="BeneficiariesCard" xml:space="preserve">
+    <value>Beneficiaries</value>
+  </data>
+  <data name="BudgetCard" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="QuickActions" xml:space="preserve">
+    <value>Quick Actions</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="ViewReports" xml:space="preserve">
+    <value>View Reports</value>
+  </data>
+  <data name="ManageBeneficiaries" xml:space="preserve">
+    <value>Manage Beneficiaries</value>
+  </data>
+  <data name="SectionsTitle" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="AddSection" xml:space="preserve">
+    <value>Add New Section</value>
+  </data>
+  <data name="ModulesTitle" xml:space="preserve">
+    <value>Modules</value>
   </data>
 </root>

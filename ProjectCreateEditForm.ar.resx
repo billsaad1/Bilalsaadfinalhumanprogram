@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddProjectTitle" xml:space="preserve">
+    <value>إضافة مشروع جديد</value>
+  </data>
+  <data name="EditProjectTitle" xml:space="preserve">
+    <value>تعديل المشروع</value>
+  </data>
+  <data name="labelProjectName" xml:space="preserve">
+    <value>اسم المشروع</value>
+  </data>
+  <data name="labelProjectCode" xml:space="preserve">
+    <value>رمز المشروع</value>
+  </data>
+  <data name="labelOverallObjective" xml:space="preserve">
+    <value>الهدف العام</value>
+  </data>
+  <data name="labelLocation" xml:space="preserve">
+    <value>الموقع</value>
+  </data>
+  <data name="labelStartDate" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="labelEndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="labelStatus" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="labelTotalBudget" xml:space="preserve">
+    <value>الميزانية الإجمالية</value>
+  </data>
+  <data name="labelDonor" xml:space="preserve">
+    <value>الجهة المانحة</value>
+  </data>
+  <data name="labelSection" xml:space="preserve">
+    <value>القسم</value>
+  </data>
+  <data name="labelManager" xml:space="preserve">
+    <value>المدير</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="InvalidBudgetInput" xml:space="preserve">
+    <value>تنسيق الميزانية غير صالح. الرجاء إدخال رقم صالح.</value>
+  </data>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>فشل التحقق</value>
+  </data>
+  <data name="ConfirmCancel" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد الإلغاء؟ سيتم فقدان أي تغييرات غير محفوظة.</value>
+  </data>
+  <data name="ConfirmCancelTitle" xml:space="preserve">
+    <value>تأكيد الإلغاء</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>حدث خطأ أثناء حفظ المشروع: </value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+</root>
