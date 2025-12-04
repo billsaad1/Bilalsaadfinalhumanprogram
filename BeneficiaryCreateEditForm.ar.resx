@@ -5,23 +5,6 @@
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
@@ -58,19 +41,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="AddBeneficiaryTitle" xml:space="preserve">
+    <value>إضافة مستفيد جديد</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="EditBeneficiaryTitle" xml:space="preserve">
+    <value>تعديل بيانات المستفيد</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="labelFirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="labelLastName" xml:space="preserve">
+    <value>الاسم الأخير</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="labelNationalId" xml:space="preserve">
+    <value>الرقم الوطني</value>
+  </data>
+  <data name="labelDateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="labelGender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="labelAddress" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="labelPhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>إلغاء</value>
   </data>
 </root>

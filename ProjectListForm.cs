@@ -1,10 +1,12 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using HumanitarianProjectManagement.UI;
+using System.Globalization;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -22,12 +24,14 @@ namespace HumanitarianProjectManagement.Forms
         public ProjectListForm(int? sectionId = null)
         {
             InitializeComponent();
-            ThemeManager.ApplyThemeToForm(this);
             _projectService = new ProjectService();
             _sectionId = sectionId;
 
             this.Load += new System.EventHandler(this.ProjectListForm_Load);
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
+            ApplyLocalization();
 
             // Optional: Adjust form title if sectionId is provided
             if (_sectionId.HasValue)
@@ -36,6 +40,29 @@ namespace HumanitarianProjectManagement.Forms
                 // For now, just indicate filtering.
                 this.Text += $" (Section ID: {_sectionId.Value})";
             }
+        }
+
+        private void ApplyLocalization()
+        {
+            // Set Right-to-Left layout if the language is Arabic
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectListForm));
+            this.Text = resources.GetString("ProjectListTitle");
+            this.btnAddProject.Text = resources.GetString("AddProject");
+            this.btnEditProject.Text = resources.GetString("EditProject");
+            this.btnDeleteProject.Text = resources.GetString("DeleteProject");
+            this.btnRefresh.Text = resources.GetString("Refresh");
+            this.btnGoToMonitoring.Text = resources.GetString("GoToMonitoring");
         }
 
         private void SetAccessibilityProperties()
@@ -80,38 +107,41 @@ namespace HumanitarianProjectManagement.Forms
                 dgvProjects.DataSource = projects;
 
                 // Configure DataGridView columns
+                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectListForm));
+
                 if (dgvProjects.Columns["ProjectID"] != null)
                     dgvProjects.Columns["ProjectID"].Visible = false;
 
                 if (dgvProjects.Columns["ProjectName"] != null)
-                    dgvProjects.Columns["ProjectName"].HeaderText = "Project Name";
+                    dgvProjects.Columns["ProjectName"].HeaderText = resources.GetString("ProjectName");
 
                 if (dgvProjects.Columns["ProjectCode"] != null)
-                    dgvProjects.Columns["ProjectCode"].HeaderText = "Code";
+                    dgvProjects.Columns["ProjectCode"].HeaderText = resources.GetString("ProjectCode");
 
                 if (dgvProjects.Columns["Status"] != null)
-                    dgvProjects.Columns["Status"].HeaderText = "Status";
+                    dgvProjects.Columns["Status"].HeaderText = resources.GetString("Status");
 
                 if (dgvProjects.Columns["StartDate"] != null)
                 {
-                    dgvProjects.Columns["StartDate"].HeaderText = "Start Date";
+                    dgvProjects.Columns["StartDate"].HeaderText = resources.GetString("StartDate");
                     dgvProjects.Columns["StartDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
                 }
 
                 if (dgvProjects.Columns["EndDate"] != null)
                 {
-                    dgvProjects.Columns["EndDate"].HeaderText = "End Date";
+                    dgvProjects.Columns["EndDate"].HeaderText = resources.GetString("EndDate");
                     dgvProjects.Columns["EndDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
                 }
 
                 if (dgvProjects.Columns["TotalBudget"] != null)
                 {
-                    dgvProjects.Columns["TotalBudget"].HeaderText = "Budget";
+                    dgvProjects.Columns["TotalBudget"].HeaderText = resources.GetString("TotalBudget");
                     dgvProjects.Columns["TotalBudget"].DefaultCellStyle.Format = "N2"; // Format as number with 2 decimal places
                 }
 
+
                 // Hide less relevant columns or those with complex objects if not handled by ToString()
-                string[] columnsToHide = { "SectionID", "ManagerUserID", "Section", "ManagerUser", "BeneficiaryLists", "ProjectIndicators", "Budgets", "PurchaseOrders", "ProjectReports", "StockTransactions", "Feedbacks", "FollowUpVisits", "OverallObjective", "Location", "Donor", "UpdatedAt", "CreatedAt" };
+                string[] columnsToHide = { "SectionID", "ManagerUserID", "Section", "ManagerUser", "BeneficiaryLists", "ProjectIndicators", "Budgets", "ProjectReports", "Feedbacks", "FollowUpVisits", "OverallObjective", "Location", "Donor", "UpdatedAt", "CreatedAt" };
                 foreach (string colName in columnsToHide)
                 {
                     if (dgvProjects.Columns[colName] != null)

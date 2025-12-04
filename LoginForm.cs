@@ -1,89 +1,83 @@
-﻿using System;
-using System.Windows.Forms;
 using HumanitarianProjectManagement.DataAccessLayer;
-using HumanitarianProjectManagement.Models;
-using System.Threading.Tasks;
-using HumanitarianProjectManagement.UI; // Added
+using HumanitarianProjectManagement.UI;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
     public partial class LoginForm : Form
     {
-        private UserService _userService;
+        private readonly UserService _userService;
+        private readonly HpmDbContext _context;
 
         public LoginForm()
         {
             InitializeComponent();
-            ThemeManager.ApplyThemeToForm(this); // Added
-            _userService = new UserService();
+            _context = new HpmDbContext();
+            _userService = new UserService(_context);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
 
-            // Accessibility Enhancements
-            txtUsername.AccessibleName = "Username";
-            txtUsername.AccessibleDescription = "Enter your account username.";
-            txtPassword.AccessibleName = "Password";
-            txtPassword.AccessibleDescription = "Enter your account password.";
-            btnLogin.AccessibleName = "Login button";
-            btnCancel.AccessibleName = "Cancel button";
+            // Subscribe to the language changed event
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
+            ApplyLocalization();
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text; // No trim on password
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Username and password are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username and password are required.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            btnLogin.Enabled = false;
-            txtUsername.Enabled = false;
-            txtPassword.Enabled = false;
-            this.UseWaitCursor = true;
+            var user = await _userService.AuthenticateUser(username, password);
 
-            try
+            if (user != null)
             {
-                User authenticatedUser = await _userService.AuthenticateUserAsync(username, password);
-
-                if (authenticatedUser != null)
-                {
-                    // Store authenticated user in ApplicationState
-                    ApplicationState.CurrentUser = authenticatedUser;
-
-                    // Successful login - Set DialogResult and Close. Program.cs will handle Dashboard.
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    // Failed login
-                    MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPassword.Clear(); // Clear password field
-                    txtUsername.Focus(); // Set focus back to username
-                }
+                ApplicationState.CurrentUser = user;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"An error occurred during login: {ex.Message}", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                btnLogin.Enabled = true;
-                txtUsername.Enabled = true;
-                txtPassword.Enabled = true;
-                this.UseWaitCursor = false;
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void lnkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ApplyLocalization()
         {
-            MessageBox.Show("Password recovery feature is not yet implemented.", "Forgot Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Set Right-to-Left layout if the language is Arabic
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            this.Text = resources.GetString("$this.Text");
+            this.lblUsername.Text = resources.GetString("lblUsername.Text");
+            this.lblPassword.Text = resources.GetString("lblPassword.Text");
+            this.btnLogin.Text = resources.GetString("btnLogin.Text");
+            this.btnCancel.Text = resources.GetString("btnCancel.Text");
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using HumanitarianProjectManagement.Forms;
-using HumanitarianProjectManagement.UI; // Added using directive
+using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.Forms;
+using HumanitarianProjectManagement.UI;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace HumanitarianProjectManagement
@@ -11,14 +14,28 @@ namespace HumanitarianProjectManagement
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length > 0 && args[0] == "test")
+            {
+                TestRunner.MainTestEntry();
+                return;
+            }
+
+            // Load settings and set culture
+            var settingsService = new SettingsService();
+            var settings = settingsService.LoadSettings();
+            if (!string.IsNullOrEmpty(settings.Language))
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.Language);
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Show splash screen first
-            SplashScreenForm splashScreen = new SplashScreenForm(); // Simplified instantiation
-            splashScreen.ShowDialog(); // Show as a dialog to wait for it to close
+            SplashScreenForm splashScreen = new SplashScreenForm();
+            splashScreen.ShowDialog();
 
             // Then proceed to login
             LoginForm loginForm = new LoginForm();
@@ -27,8 +44,6 @@ namespace HumanitarianProjectManagement
                 // If login is successful, run the main application form (Dashboard)
                 Application.Run(new DashboardForm());
             }
-            // If loginForm is closed with Cancel or any other DialogResult, the application will exit.
-            // No explicit Application.Exit() needed here if that's the desired behavior.
         }
     }
 }

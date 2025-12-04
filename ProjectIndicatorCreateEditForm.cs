@@ -1,9 +1,10 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -59,6 +60,41 @@ namespace HumanitarianProjectManagement.Forms
             chkSpecifyStartDate.CheckedChanged += chkSpecifyStartDate_CheckedChanged;
             chkSpecifyEndDate.CheckedChanged += chkSpecifyEndDate_CheckedChanged;
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectIndicatorCreateEditForm));
+            if (_isEditMode)
+            {
+                this.Text = resources.GetString("EditIndicatorTitle");
+            }
+            else
+            {
+                this.Text = resources.GetString("AddIndicatorTitle");
+            }
+
+            this.lblIndicatorName.Text = resources.GetString("labelIndicatorName");
+            this.lblDescription.Text = resources.GetString("labelDescription");
+            this.lblUnitOfMeasure.Text = resources.GetString("labelUnitOfMeasure");
+            this.lblBaselineValue.Text = resources.GetString("labelBaseline");
+            this.lblTargetValue.Text = resources.GetString("labelTarget");
+            this.chkIsKeyIndicator.Text = resources.GetString("checkBoxIsKeyIndicator");
+            this.btnSave.Text = resources.GetString("btnSave");
+            this.btnCancel.Text = resources.GetString("btnCancel");
         }
 
         private void SetAccessibilityProperties()

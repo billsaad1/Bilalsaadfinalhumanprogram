@@ -58,19 +58,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="File" xml:space="preserve">
+    <value>ملف</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="Help" xml:space="preserve">
+    <value>مساعدة</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="About" xml:space="preserve">
+    <value>حول</value>
+  </data>
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>مرحبا، {0}!</value>
+  </data>
+  <data name="QuickStats" xml:space="preserve">
+    <value>إحصائيات سريعة</value>
+  </data>
+  <data name="ProjectsCard" xml:space="preserve">
+    <value>المشاريع</value>
+  </data>
+  <data name="BeneficiariesCard" xml:space="preserve">
+    <value>المستفيدون</value>
+  </data>
+  <data name="BudgetCard" xml:space="preserve">
+    <value>الميزانية</value>
+  </data>
+  <data name="QuickActions" xml:space="preserve">
+    <value>إجراءات سريعة</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>مشروع جديد</value>
+  </data>
+  <data name="ViewReports" xml:space="preserve">
+    <value>عرض التقارير</value>
+  </data>
+  <data name="ManageBeneficiaries" xml:space="preserve">
+    <value>إدارة المستفيدين</value>
+  </data>
+  <data name="SectionsTitle" xml:space="preserve">
+    <value>الأقسام</value>
+  </data>
+  <data name="AddSection" xml:space="preserve">
+    <value>إضافة قسم جديد</value>
+  </data>
+  <data name="ModulesTitle" xml:space="preserve">
+    <value>الوحدات</value>
   </data>
 </root>
