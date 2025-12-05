@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using HumanitarianProjectManagement.UI;
@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using HumanitarianProjectManagement.DataAccessLayer;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
+using System.Globalization;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -28,6 +30,8 @@ namespace HumanitarianProjectManagement.Forms
 
             // Wire up event handlers
             this.Load += DashboardForm_Load;
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
 
             // Set up hover effects for buttons
             SetupButtonHoverEffects();
@@ -37,6 +41,42 @@ namespace HumanitarianProjectManagement.Forms
 
             // Accessibility Enhancements
             SetupAccessibility();
+
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            // Set Right-to-Left layout if the language is Arabic
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            this.fileToolStripMenuItem.Text = resources.GetString("fileToolStripMenuItem.Text");
+            this.settingsToolStripMenuItem.Text = resources.GetString("settingsToolStripMenuItem.Text");
+            this.exitToolStripMenuItem.Text = resources.GetString("exitToolStripMenuItem.Text");
+            this.helpToolStripMenuItem.Text = resources.GetString("helpToolStripMenuItem.Text");
+            this.aboutToolStripMenuItem.Text = resources.GetString("aboutToolStripMenuItem.Text");
+            this.lblWelcomeTitle.Text = string.Format(resources.GetString("lblWelcomeTitle.Text"), Environment.UserName);
+            this.lblQuickStatsTitle.Text = resources.GetString("lblQuickStatsTitle.Text");
+            this.lblProjectsLabel.Text = resources.GetString("lblProjectsLabel.Text");
+            this.lblBeneficiariesLabel.Text = resources.GetString("lblBeneficiariesLabel.Text");
+            this.lblBudgetLabel.Text = resources.GetString("lblBudgetLabel.Text");
+            this.lblQuickActionsTitle.Text = resources.GetString("lblQuickActionsTitle.Text");
+            this.btnNewProject.Text = resources.GetString("btnNewProject.Text");
+            this.btnViewReports.Text = resources.GetString("btnViewReports.Text");
+            this.btnManageBeneficiaries.Text = resources.GetString("btnManageBeneficiaries.Text");
+            this.lblSectionsTitle.Text = resources.GetString("lblSectionsTitle.Text");
+            this.btnAddSection.Text = resources.GetString("btnAddSection.Text");
+            this.lblModulesTitle.Text = resources.GetString("lblModulesTitle.Text");
         }
 
         private void InitializeModernTheme()
@@ -243,9 +283,7 @@ namespace HumanitarianProjectManagement.Forms
             {
                 new { Text = "📊 Projects (All)", Icon = "📊", FormType = typeof(ProjectListForm) },
                 new { Text = "📈 Monitoring & Evaluation", Icon = "📈", FormType = typeof(ProjectListForm) },
-                new { Text = "🛒 Purchasing", Icon = "🛒", FormType = typeof(PurchaseOrderListForm) },
                 new { Text = "👥 Beneficiaries", Icon = "👥", FormType = typeof(BeneficiaryListManagementForm) },
-                new { Text = "📦 Stock Management", Icon = "📦", FormType = typeof(StockItemListForm) }
             };
 
             foreach (var props in moduleButtonProperties)
@@ -457,8 +495,8 @@ namespace HumanitarianProjectManagement.Forms
         // Menu Event Handlers
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Settings functionality will be implemented soon.", "Settings",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

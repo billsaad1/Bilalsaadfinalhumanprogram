@@ -1,10 +1,11 @@
-﻿using HumanitarianProjectManagement.DataAccessLayer;
+using HumanitarianProjectManagement.DataAccessLayer;
 using HumanitarianProjectManagement.Models;
 using HumanitarianProjectManagement.UI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -28,6 +29,30 @@ namespace HumanitarianProjectManagement.Forms
             this.CancelButton = btnClose;
 
             SetAccessibilityProperties();
+            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            if (Thread.CurrentThread.CurrentUICulture.Name == "ar")
+            {
+                this.RightToLeft = RightToLeft.Yes;
+                this.RightToLeftLayout = true;
+            }
+            else
+            {
+                this.RightToLeft = RightToLeft.No;
+                this.RightToLeftLayout = false;
+            }
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectMonitoringForm));
+            this.Text = resources.GetString("$this.Text");
+            this.lblProjectNameDisplay.Text = resources.GetString("lblProjectNameDisplay.Text");
+            this.btnAddIndicator.Text = resources.GetString("btnAddIndicator.Text");
+            this.btnEditIndicator.Text = resources.GetString("btnEditIndicator.Text");
+            this.btnDeleteIndicator.Text = resources.GetString("btnDeleteIndicator.Text");
+            this.btnRefreshIndicators.Text = resources.GetString("btnRefreshIndicators.Text");
         }
 
         private void SetAccessibilityProperties()

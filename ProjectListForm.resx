@@ -5,23 +5,6 @@
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
@@ -59,18 +42,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Login</value>
+    <value>Project List</value>
   </data>
-  <data name="lblUsername.Text" xml:space="preserve">
-    <value>Username</value>
+  <data name="btnAddProject.Text" xml:space="preserve">
+    <value>Add Project</value>
   </data>
-  <data name="lblPassword.Text" xml:space="preserve">
-    <value>Password</value>
+  <data name="btnEditProject.Text" xml:space="preserve">
+    <value>Edit Project</value>
   </data>
-  <data name="btnLogin.Text" xml:space="preserve">
-    <value>Login</value>
+  <data name="btnDeleteProject.Text" xml:space="preserve">
+    <value>Delete Project</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="btnRefresh.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="btnGoToMonitoring.Text" xml:space="preserve">
+    <value>Go to Monitoring</value>
+  </data>
+  <data name="dgvProjects.Columns.ProjectName.HeaderText" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
+  <data name="dgvProjects.Columns.ProjectCode.HeaderText" xml:space="preserve">
+    <value>Project Code</value>
+  </data>
+  <data name="dgvProjects.Columns.Status.HeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="dgvProjects.Columns.StartDate.HeaderText" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="dgvProjects.Columns.EndDate.HeaderText" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="dgvProjects.Columns.TotalBudget.HeaderText" xml:space="preserve">
+    <value>Total Budget</value>
   </data>
 </root>

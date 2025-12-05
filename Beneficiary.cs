@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -53,14 +53,12 @@ namespace HumanitarianProjectManagement.Models
         // Navigation properties
         [ForeignKey("BeneficiaryListID")]
         public virtual BeneficiaryList BeneficiaryList { get; set; }
-        public virtual ICollection<StockTransaction> StockTransactions { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<FollowUpVisit> FollowUpVisits { get; set; }
 
 
         public Beneficiary()
         {
-            StockTransactions = new HashSet<StockTransaction>();
             Feedbacks = new HashSet<Feedback>();
             FollowUpVisits = new HashSet<FollowUpVisit>();
             RegistrationDate = DateTime.UtcNow;
