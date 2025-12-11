@@ -58,19 +58,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Login</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>ملف</value>
   </data>
-  <data name="lblUsername.Text" xml:space="preserve">
-    <value>Username</value>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>الإعدادات</value>
   </data>
-  <data name="lblPassword.Text" xml:space="preserve">
-    <value>Password</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>خروج</value>
   </data>
-  <data name="btnLogin.Text" xml:space="preserve">
-    <value>Login</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>مساعدة</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>حول</value>
+  </data>
+  <data name="lblWelcomeTitle.Text" xml:space="preserve">
+    <value>مرحبا، {0}!</value>
+  </data>
+  <data name="lblQuickStatsTitle.Text" xml:space="preserve">
+    <value>إحصائيات سريعة</value>
+  </data>
+  <data name="lblProjectsLabel.Text" xml:space="preserve">
+    <value>المشاريع</value>
+  </data>
+  <data name="lblBeneficiariesLabel.Text" xml:space="preserve">
+    <value>المستفيدون</value>
+  </data>
+  <data name="lblBudgetLabel.Text" xml:space="preserve">
+    <value>الميزانية</value>
+  </data>
+  <data name="lblQuickActionsTitle.Text" xml:space="preserve">
+    <value>إجراءات سريعة</value>
+  </data>
+  <data name="btnNewProject.Text" xml:space="preserve">
+    <value>مشروع جديد</value>
+  </data>
+  <data name="btnViewReports.Text" xml:space="preserve">
+    <value>عرض التقارير</value>
+  </data>
+  <data name="btnManageBeneficiaries.Text" xml:space="preserve">
+    <value>إدارة المستفيدين</value>
+  </data>
+  <data name="lblSectionsTitle.Text" xml:space="preserve">
+    <value>الأقسام</value>
+  </data>
+  <data name="btnAddSection.Text" xml:space="preserve">
+    <value>إضافة قسم جديد</value>
+  </data>
+  <data name="lblModulesTitle.Text" xml:space="preserve">
+    <value>الوحدات</value>
   </data>
 </root>

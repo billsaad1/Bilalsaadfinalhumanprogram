@@ -59,18 +59,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>Login</value>
+    <value>تسجيل الدخول</value>
   </data>
   <data name="lblUsername.Text" xml:space="preserve">
-    <value>Username</value>
+    <value>اسم المستخدم</value>
   </data>
   <data name="lblPassword.Text" xml:space="preserve">
-    <value>Password</value>
+    <value>كلمة المرور</value>
   </data>
   <data name="btnLogin.Text" xml:space="preserve">
-    <value>Login</value>
+    <value>تسجيل الدخول</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>إلغاء</value>
   </data>
 </root>

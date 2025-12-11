@@ -58,19 +58,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Login</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
   </data>
-  <data name="lblUsername.Text" xml:space="preserve">
-    <value>Username</value>
+  <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
   </data>
-  <data name="lblPassword.Text" xml:space="preserve">
-    <value>Password</value>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
   </data>
-  <data name="btnLogin.Text" xml:space="preserve">
-    <value>Login</value>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="lblWelcomeTitle.Text" xml:space="preserve">
+    <value>Welcome, {0}!</value>
+  </data>
+  <data name="lblQuickStatsTitle.Text" xml:space="preserve">
+    <value>Quick Stats</value>
+  </data>
+  <data name="lblProjectsLabel.Text" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="lblBeneficiariesLabel.Text" xml:space="preserve">
+    <value>Beneficiaries</value>
+  </data>
+  <data name="lblBudgetLabel.Text" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="lblQuickActionsTitle.Text" xml:space="preserve">
+    <value>Quick Actions</value>
+  </data>
+  <data name="btnNewProject.Text" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="btnViewReports.Text" xml:space="preserve">
+    <value>View Reports</value>
+  </data>
+  <data name="btnManageBeneficiaries.Text" xml:space="preserve">
+    <value>Manage Beneficiaries</value>
+  </data>
+  <data name="lblSectionsTitle.Text" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="btnAddSection.Text" xml:space="preserve">
+    <value>Add New Section</value>
+  </data>
+  <data name="lblModulesTitle.Text" xml:space="preserve">
+    <value>Modules</value>
   </data>
 </root>
